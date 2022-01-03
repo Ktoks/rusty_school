@@ -29,7 +29,7 @@ fn main() {
         // find book
         else if "f" == decision {
 
-            println!("Please input the isbn of the book you're looking for: ");
+            println!("\nPlease input the isbn of the book you're looking for: ");
             let isbn: String = read!("{}\n");
 
             // show book found
@@ -37,18 +37,22 @@ fn main() {
         }
         // list all books in hashmap
         else if "l" == decision {
-            for (key, value) in dict_of_books.iter() {
-                println!("ISBN: {:?} Name: {:?}", key, value);
+            if dict_of_books.len() < 1 {
+                println!("\nThere are no books in here yet!\n");
+            } else{
+                for (key, value) in dict_of_books.iter() {
+                    println!("ISBN: {:?} Name: {:?}\n", key, value);
+                }
             }
         }
         // quit if 'q' is input
         else if "q" == decision {
-            println!("Thanks for using ISBN Index!");
+            println!("\nThanks for using ISBN Index!");
             quitting = true;
         }
         // quit if invalid input is recieved
         else {
-            println!("Not an expected input, quitting...");
+            println!("\nNot an expected input, quitting...");
             quitting = true;
         }
     }
