@@ -69,7 +69,7 @@ fn main() {
             while miles <= 0.0 {
                 println!("How many miles did you drive since last filling up? ");
                 let some: String = read!("{}\n");
-                miles = match some.parse() {
+                miles = match some.parse::<f64>() {
                     Ok(v) => v,
                     Err(_) => 0.0
                 };
