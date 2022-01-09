@@ -12,6 +12,8 @@
 
 > Guess a Number
 
+> Guess My Name
+
 > ISBN Indexer
 
 > Word Zap
