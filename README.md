@@ -7,7 +7,11 @@
 ### Completed:
 
 > DNA Sequencer
+
 > Gas Mileage
+
 > Guess a Number
+
 > ISBN Indexer
+
 > Word Zap
