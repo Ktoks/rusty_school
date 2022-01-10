@@ -97,10 +97,10 @@ fn main() {
             }
             let mut mult = 0.0;
             let arr = "r".to_string();
-            let dblu = "r".to_string();
-            let ess = "r".to_string();
-            let bee = "r".to_string();
-            let ell = "r".to_string();
+            let dblu = "w".to_string();
+            let ess = "s".to_string();
+            let bee = "b".to_string();
+            let ell = "l".to_string();
             match &activity {
                 arr => mult = 11.4,
                 dblu => mult = 3.73,
