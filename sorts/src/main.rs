@@ -13,6 +13,7 @@ Do this multiple times to verify that each of your sorting algorithms are workin
 
 mod unsorted;
 mod bubble;
+mod shaker;
 
 fn main() {
     let matches = cli();
@@ -37,10 +38,14 @@ fn main() {
     println!("Unsorted: {}", unsorted_str);
 
     // call selected sorting algorithm
-    let sorted: Vec<i32> = bubble::sort(unsorted);
-    let sorted_str: String = sorted.into_iter().map(|i| i.to_string() + " ").collect::<String>();
+    let b_sorted: Vec<i32> = bubble::sort(unsorted.clone());
+    let b_sorted_str: String = b_sorted.into_iter().map(|i| i.to_string() + " ").collect::<String>();
 
-    println!("  Sorted: {}", sorted_str);
+    let s_sorted: Vec<i32> = shaker::sort(unsorted);
+    let s_sorted_str: String = s_sorted.into_iter().map(|i| i.to_string() + " ").collect::<String>();
+
+    println!("B Sorted: {}", b_sorted_str);
+    println!("S Sorted: {}", s_sorted_str);
 
     // writing
     // let out_f = File::create(out_path).expect("Couldn't create file!");
