@@ -37,7 +37,8 @@ fn main() {
     // let f = File::open(in_path).expect("Unable to open file");
     // let f = BufReader::new(f);
 
-    let range: usize = 50;
+    let range_str = matches.value_of("range").unwrap();
+    let range: usize = range_str.parse::<i32>().unwrap() as usize;
 
     let unsorted: Vec<i32> = unsorted::create(size, range);
     let unsorted_str: String = unsorted.clone().into_iter().map(|i| i.to_string() + " ").collect::<String>();
@@ -60,10 +61,14 @@ fn main() {
     let c_sorted: Vec<i32> = counting::sort(unsorted.clone(), range);
     let c_sorted_str: String = c_sorted.into_iter().map(|i| i.to_string() + " ").collect::<String>();
 
+    let q_sorted: Vec<i32> = quick::sort(unsorted.clone(), 0 as usize, size);
+    let q_sorted_str: String = q_sorted.into_iter().map(|i| i.to_string() + " ").collect::<String>();
+
     println!("Rust Sort {}", a_sorted_str);
     println!("B Sorted: {}", b_sorted_str);
     println!("S Sorted: {}", s_sorted_str);
     println!("C Sorted: {}", c_sorted_str);
+    println!("Q Sorted: {}", q_sorted_str);
 
     // writing
     // let out_f = File::create(out_path).expect("Couldn't create file!");
@@ -93,7 +98,7 @@ fn cli() -> clap::ArgMatches {
             .help("the type of algorithm you want to use"),
         Arg::new("range")
             .short('r')
-            .default_value("20")
+            .default_value("10")
             .help("the range numbers are allowed")
     ])
     .get_matches();
