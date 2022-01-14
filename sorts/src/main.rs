@@ -18,8 +18,7 @@ mod bubble;
 mod shaker;
 mod counting;
 mod quick;
-// mod mod_quick;
-// mod merge;
+mod merge;
 
 fn main() {
     let matches = cli();
@@ -69,12 +68,16 @@ fn main() {
     let m_sorted: Vec<i32> = quick::sort_mod(unsorted.clone(), 0 as usize, size, true);
     let m_sorted_str: String = m_sorted.into_iter().map(|i| i.to_string() + " ").collect::<String>();
 
+    let x_sorted: Vec<i32> = merge::sort(unsorted);
+    let x_sorted_str: String = x_sorted.into_iter().map(|i| i.to_string() + " ").collect::<String>();
+
     println!("Rust Sort {}", a_sorted_str);
     println!("B Sorted: {}", b_sorted_str);
     println!("S Sorted: {}", s_sorted_str);
     println!("C Sorted: {}", c_sorted_str);
     println!("Q Sorted: {}", q_sorted_str);
     println!("m Sorted: {}", m_sorted_str);
+    println!("x Sorted: {}", x_sorted_str);
 
     // writing
     // let out_f = File::create(out_path).expect("Couldn't create file!");
