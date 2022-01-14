@@ -61,14 +61,20 @@ fn main() {
     let c_sorted: Vec<i32> = counting::sort(unsorted.clone(), range);
     let c_sorted_str: String = c_sorted.into_iter().map(|i| i.to_string() + " ").collect::<String>();
 
+    // quick:
     let q_sorted: Vec<i32> = quick::sort(unsorted.clone(), 0 as usize, size);
     let q_sorted_str: String = q_sorted.into_iter().map(|i| i.to_string() + " ").collect::<String>();
+
+    // modified quick:
+    let m_sorted: Vec<i32> = quick::sort_mod(unsorted.clone(), 0 as usize, size, true);
+    let m_sorted_str: String = m_sorted.into_iter().map(|i| i.to_string() + " ").collect::<String>();
 
     println!("Rust Sort {}", a_sorted_str);
     println!("B Sorted: {}", b_sorted_str);
     println!("S Sorted: {}", s_sorted_str);
     println!("C Sorted: {}", c_sorted_str);
     println!("Q Sorted: {}", q_sorted_str);
+    println!("m Sorted: {}", m_sorted_str);
 
     // writing
     // let out_f = File::create(out_path).expect("Couldn't create file!");
